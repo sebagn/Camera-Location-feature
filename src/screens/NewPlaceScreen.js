@@ -10,7 +10,7 @@ import {
 import {useDispatch} from 'react-redux';
 import {addPlace} from '../store/places.actions';
 import ImageSelector from '../components/ImageSelector';
-// import LocationSelector from '../components/LocationSelector'
+import LocationSelector from '../components/LocationSelector'
 import {COLORS} from '../constants';
 
 const NewPlaceScreen = ({navigation}) => {
@@ -38,7 +38,7 @@ const NewPlaceScreen = ({navigation}) => {
       <View style={styles.container}>
         <Text style={styles.label}>Titulo</Text>
         <ImageSelector onImage={handleOnImage} />
-        {/* <LocationSelector onLocation={handleOnLocation}/> */}
+        <LocationSelector onLocation={handleOnLocation}/>
         <TextInput
           style={styles.input}
           onChangeText={handleTitleChange}
