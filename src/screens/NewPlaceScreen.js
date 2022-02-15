@@ -13,7 +13,7 @@ import ImageSelector from '../components/ImageSelector';
 // import LocationSelector from '../components/LocationSelector'
 import {COLORS} from '../constants';
 
-const NewPlaceScreen = () => {
+const NewPlaceScreen = ({navigation}) => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [image, setImage] = useState('');
