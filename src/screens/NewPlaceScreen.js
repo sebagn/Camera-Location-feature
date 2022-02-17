@@ -10,7 +10,7 @@ import {
 import {useDispatch} from 'react-redux';
 import {addPlace} from '../store/places.actions';
 import ImageSelector from '../components/ImageSelector';
-import LocationSelector from '../components/LocationSelector'
+import LocationSelector from '../components/LocationSelector';
 import {COLORS} from '../constants';
 
 const NewPlaceScreen = ({navigation}) => {
@@ -22,7 +22,7 @@ const NewPlaceScreen = ({navigation}) => {
   const handleTitleChange = text => setTitle(text);
 
   const handleSave = () => {
-    dispatch(addPlace(title, image));
+    dispatch(addPlace(title, image, location));
     navigation.navigate('Direcciones');
   };
 
@@ -33,12 +33,21 @@ const NewPlaceScreen = ({navigation}) => {
   const handleOnLocation = position => {
     setLocation(position);
   };
+  const handleOnMapLocation = () => {
+    navigation.navigate('Map', {
+      location: location,
+    });
+  };
+
   return (
     <ScrollView>
       <View style={styles.container}>
         <Text style={styles.label}>Titulo</Text>
         <ImageSelector onImage={handleOnImage} />
-        <LocationSelector onLocation={handleOnLocation}/>
+        <LocationSelector
+          onLocation={handleOnLocation}
+          onMapLocation={handleOnMapLocation}
+        />
         <TextInput
           style={styles.input}
           onChangeText={handleTitleChange}
