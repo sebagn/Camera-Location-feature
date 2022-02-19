@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Image, StyleSheet, Text} from 'react-native';
-import {MAPS_KEY} from '../../constants/maps';
+import {MAPS_KEY} from '../../utils/constants/maps';
 
 const MapPreview = ({location, style}) => {
   const {latitude, longitude} = location;

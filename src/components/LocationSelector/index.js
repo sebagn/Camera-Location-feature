@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, Alert, Button} from 'react-native';
-import {COLORS} from '../../constants';
+import {COLORS} from '../../utils/constants';
 import MapPreview from '../MapPreview/index';
 import {useRoute} from '@react-navigation/native';
-import {useGetPosition} from '../../constants/useGetPosition';
+import {useGetPosition} from '../../utils/hooks/useGetPosition';
 import Geolocation from '@react-native-community/geolocation';
 
 const LocationSelector = ({onLocation, onMapLocation}) => {
@@ -12,18 +12,19 @@ const LocationSelector = ({onLocation, onMapLocation}) => {
   const mapLocation = route?.params?.mapLocation;
 
   useEffect(() => {
-    if (mapLocation) {
+    if (!!mapLocation) {
       setPickedLocation(mapLocation);
       onLocation(mapLocation);
+    } else if (!!pickedLocation) {
+      onLocation(pickedLocation);
     }
-  }, [mapLocation]);
+  }, [mapLocation, pickedLocation]);
 
   const handleGetLocation = () => {
     const fetchData = async () => {
       useGetPosition(pickedLocation, setPickedLocation);
     };
     fetchData();
-    onLocation(pickedLocation);
   };
 
   const handlePickOnMap = () => {

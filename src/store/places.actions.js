@@ -1,5 +1,5 @@
 import RNFS from 'react-native-fs';
-import {MAPS_KEY} from '../constants/maps';
+import {MAPS_KEY} from '../utils/constants/maps';
 
 export const ADD_PLACE = 'ADD_PLACE';
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Button, Image, Platform } from 'react-native';
 import { launchCamera } from 'react-native-image-picker';
 import { PERMISSIONS, request, RESULTS } from 'react-native-permissions';
-import { COLORS } from '../../constants';
+import { COLORS } from '../../utils/constants';
 
 const ImageSelector = ({ onImage }) => {
     const [pickerResponse, setPickerResponse] = useState();

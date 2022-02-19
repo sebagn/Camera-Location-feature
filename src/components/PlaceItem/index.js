@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
-import { COLORS } from '../../constants';
+import { COLORS } from '../../utils/constants';
 
 const PlaceItem = ({ title, image, address, onSelect }) => {
     return (

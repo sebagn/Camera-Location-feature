@@ -6,8 +6,10 @@ import PlaceItem from '../components/PlaceItem/index';
 const PlaceListScreen = ({navigation}) => {
   const places = useSelector(state => state.places.places);
 
-  const onSelectDetail = () => {
-    navigation.navigate('Detalle');
+  const onSelectDetail = (item) => {
+    navigation.navigate('Detalle', {
+      placeId: item.id
+    });
   };
 
   const renderItem = ({item}) => (
