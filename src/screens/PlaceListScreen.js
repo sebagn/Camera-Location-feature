@@ -8,7 +8,8 @@ const PlaceListScreen = ({navigation}) => {
 
   const onSelectDetail = (item) => {
     navigation.navigate('Detalle', {
-      placeId: item.id
+      title: item.title,
+      id: item.id
     });
   };
 
@@ -17,7 +18,7 @@ const PlaceListScreen = ({navigation}) => {
       title={item.title}
       image={item.image}
       address={item.address}
-      onSelect={onSelectDetail}
+      onSelect={() => onSelectDetail(item)}
     />
   );
 

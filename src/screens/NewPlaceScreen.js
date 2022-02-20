@@ -19,44 +19,35 @@ const NewPlaceScreen = ({navigation}) => {
   const [image, setImage] = useState('');
   const [location, setLocation] = useState(null);
 
-  const handleTitleChange = text => setTitle(text);
+  const handleOnMapLocation = () => {
+    navigation.navigate('Map', {
+      location,
+    });
+  };
 
   const handleSave = () => {
     dispatch(addPlace(title, image, location));
     navigation.navigate('Direcciones');
   };
 
-  const handleOnImage = uri => {
-    setImage(uri);
-  };
-
-  const handleOnLocation = position => {
-    setLocation(position);
-  };
-  const handleOnMapLocation = () => {
-    navigation.navigate('Map', {
-      location: location,
-    });
-  };
-
   return (
     <ScrollView>
       <View style={styles.container}>
         <Text style={styles.label}>Titulo</Text>
-        <ImageSelector onImage={handleOnImage} />
+        <ImageSelector onImage={setImage} />
         <LocationSelector
           onLocation={setLocation}
           onMapLocation={handleOnMapLocation}
         />
-        <TextInput
-          style={styles.input}
-          onChangeText={handleTitleChange}
-          value={title}
+        <TextInput 
+        style={styles.input} 
+        onChangeText={setTitle} 
+        value={title} 
         />
         <Button
           title="Grabar dirección"
           color={COLORS.MAROON}
-          onPress={() => handleSave()}
+          onPress={handleSave}
         />
       </View>
     </ScrollView>
