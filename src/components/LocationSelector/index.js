@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet, Alert, Button} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Alert,
+  Button,
+  TouchableOpacity,
+} from 'react-native';
 import {COLORS} from '../../utils/constants';
 import MapPreview from '../MapPreview/index';
 import {useRoute} from '@react-navigation/native';
@@ -38,16 +45,16 @@ const LocationSelector = ({onLocation, onMapLocation}) => {
         <Text>No hay una ubicación seleccionada</Text>
       </MapPreview>
       <View style={styles.action}>
-        <Button
-          title="Seleccionar ubicación"
-          color={COLORS.PEACH_PUFF}
-          onPress={handleGetLocation}
-        />
-        <Button
-          title="Elegir del mapa"
-          color={COLORS.LIGTH_PINK}
-          onPress={handlePickOnMap}
-        />
+        <TouchableOpacity title="">
+          <Text onPress={handleGetLocation} style={styles.button}>
+            Seleccionar ubicación
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text onPress={handlePickOnMap} style={styles.button}>
+            Elegir en el mapa
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -60,15 +67,26 @@ const styles = StyleSheet.create({
   preview: {
     width: '100%',
     height: 200,
-    marginBottom: 10,
+    marginVertical: 10,
     justifyContent: 'center',
     alignContent: 'center',
     borderColor: COLORS.BLUSH,
     borderWidth: 1,
+    borderRadius: 5,
   },
   action: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginBottom: 10,
+  },
+  button: {
+    backgroundColor: COLORS.LIGTH_PINK,
+    padding: 10,
+    borderRadius: 3,
+    width: '100%',
+    textTransform: 'uppercase',
+    color: 'white',
+    fontWeight: 'bold',
   },
 });
 

@@ -10,11 +10,7 @@ const PlaceDetailScreen = ({route}) => {
   return (
     <View style={styles.container}>
       <Image source={{uri: place.image}} style={styles.image} />
-      <View style={styles.details}>
-        {/* <Text style={styles.title}>{place.title}</Text> */}
-        {/* <Text style={styles.direccion}>Direccion:</Text> */}
         <Text style={styles.address}>{place.address}</Text>
-      </View>
     </View>
   );
 };
@@ -22,16 +18,15 @@ const PlaceDetailScreen = ({route}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    background: rgb(2,0,36),
+background: 'linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,121,31,1) 35%, rgba(0,212,255,1) 100%)',
   },
   image: {
     flex: 1,
-    elevation: 3,
     margin: 20,
     borderRadius: 5,
   },
   details: {
-    flex: 0.1,
-    paddingHorizontal: 30,
   },
   title: {
     fontSize: 30,
@@ -46,6 +41,9 @@ const styles = StyleSheet.create({
   },
   address: {
     color: 'black',
+    flex: 0.1,
+    paddingHorizontal: 30,
+    textAlign: 'center',
   },
 });
 

@@ -33,16 +33,17 @@ const NewPlaceScreen = ({navigation}) => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Text style={styles.label}>Titulo</Text>
+        {/* <Text style={styles.label}>Titulo</Text> */}
+        <TextInput
+          style={styles.input}
+          onChangeText={setTitle}
+          value={title}
+          placeholder="Inserte el titulo del lugar"
+        />
         <ImageSelector onImage={setImage} />
         <LocationSelector
           onLocation={setLocation}
           onMapLocation={handleOnMapLocation}
-        />
-        <TextInput 
-        style={styles.input} 
-        onChangeText={setTitle} 
-        value={title} 
         />
         <Button
           title="Grabar dirección"
@@ -57,6 +58,13 @@ const NewPlaceScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 10,
+  },
+  input: {
+    marginBottom: 10,
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: COLORS.BLUSH,
   },
 });
 

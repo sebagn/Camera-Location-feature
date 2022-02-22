@@ -38,11 +38,11 @@ const ImageSelector = ({ onImage }) => {
     return (
         <View style={styles.container}>
             <View style={styles.preview}>
-                {!pickerResponse ? (<Text>No hay una imagen seleccionada</Text>) : (
+                {!pickerResponse ? (<Text style={styles.text}>No hay una imagen seleccionada</Text>) : (
                     <Image style={styles.image} source={{ uri: pickerResponse.uri }} />
                 )}
             </View>
-            <Button title="tomar foto" color={COLORS.MAROON} onPress={handleTakePicture} />
+            <Button title="tomar foto" color={COLORS.LIGTH_PINK} onPress={handleTakePicture} />
         </View>
     )
 }
@@ -52,17 +52,20 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     preview: {
+        justifyContent: 'center',
         width: '100%',
         height: 200,
         marginBottom: 10,
-        justifyContent: 'center',
-        alignContent: 'center',
         borderColor: COLORS.BLUSH,
-        borderWidth: 1
+        borderWidth: 1,
+        borderRadius: 5,
     },
     image: {
         width: '100%',
         height: '100%'
+    },
+    text: {
+        textAlign: 'center',
     }
 });
 
