@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "745111747123",
+    "project_id": "restauranttracker-8590c",
+    "storage_bucket": "restauranttracker-8590c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745111747123:android:280f2c1c84c4cfcb730146",
+        "android_client_info": {
+          "package_name": "com.foodtracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "745111747123-8mcqacg4kasnovstf3d9e4fbmi5b4b76.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9cBs1tVKDXPReshD7j7YNspTMKHpdsMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "745111747123-8mcqacg4kasnovstf3d9e4fbmi5b4b76.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

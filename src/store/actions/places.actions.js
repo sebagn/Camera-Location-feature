@@ -1,6 +1,6 @@
 import RNFS from 'react-native-fs';
-import {MAPS_KEY} from '../utils/constants/maps';
-import {insertAddress, fetchAddress} from '../db';
+import {MAPS_KEY} from '../../utils/constants/maps';
+import {insertAddress, fetchAddress} from '../../db';
 
 export const ADD_PLACE = 'ADD_PLACE';
 export const LOAD_PLACE = 'LOAD_PLACE';

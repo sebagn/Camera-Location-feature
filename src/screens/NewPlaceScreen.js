@@ -8,7 +8,7 @@ import {
   Button,
 } from 'react-native';
 import {useDispatch} from 'react-redux';
-import {addPlace} from '../store/places.actions';
+import {addPlace} from '../store/actions/places.actions';
 import ImageSelector from '../components/ImageSelector';
 import LocationSelector from '../components/LocationSelector';
 import {COLORS} from '../utils/constants';
@@ -33,7 +33,6 @@ const NewPlaceScreen = ({navigation}) => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        {/* <Text style={styles.label}>Titulo</Text> */}
         <TextInput
           style={styles.input}
           onChangeText={setTitle}

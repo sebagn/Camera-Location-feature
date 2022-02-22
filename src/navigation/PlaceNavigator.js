@@ -5,6 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {COLORS} from '../utils/constants';
 
 // screens
+import LoginScreen from '../screens/LoginScreen';
 import PlaceListScreen from '../screens/PlaceListScreen';
 import PlaceDetailScreen from '../screens/PlaceDetailScreen';
 import NewPlaceScreen from '../screens/NewPlaceScreen';
@@ -14,7 +15,7 @@ const PlaceStack = createNativeStackNavigator();
 
 const PlaceNavigator = () => (
   <PlaceStack.Navigator
-    initialRoute="Direcciones"
+    initialRoute="Login"
     screenOptions={{
       headerStyle: {
         backgroundColor: Platform.OS === 'android' ? COLORS.DARK_SIENNA : '',
@@ -24,6 +25,11 @@ const PlaceNavigator = () => (
         fontWeight: 'bold',
       },
     }}>
+    <PlaceStack.Screen
+      name="Login"
+      component={LoginScreen}
+      options={{headerShown: false}}
+    />
     <PlaceStack.Screen
       name="Direcciones"
       component={PlaceListScreen}
