@@ -6,7 +6,7 @@ export const actionTypes = {
   signOut: 'SIGN_OUT',
 };
 
-export const authenticate = (isLogin, email, password) => {
+export const authenticate = (isLogin, email, password, navigation) => {
   return async dispatch => {
     try {
       const response = isLogin
@@ -17,6 +17,8 @@ export const authenticate = (isLogin, email, password) => {
         type: actionTypes.authenticate,
         payload: response.user.email,
       });
+      
+      navigation.navigate('Direcciones');
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
         console.log('That email address is already in use!');
