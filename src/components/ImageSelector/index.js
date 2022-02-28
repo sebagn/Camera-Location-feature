@@ -4,8 +4,8 @@ import {launchCamera} from 'react-native-image-picker';
 import {PERMISSIONS, request, RESULTS} from 'react-native-permissions';
 import {COLORS} from '../../utils/constants';
 
-const ImageSelector = ({onImage, shape}) => {
-  const [pickerResponse, setPickerResponse] = useState();
+const ImageSelector = ({onImage, shape, profilePicture}) => {
+  const [pickerResponse, setPickerResponse] = useState({uri: profilePicture});
   const IS_IOS = Platform.OS === 'ios';
 
   const handleTakePicture = async () => {

@@ -1,13 +1,20 @@
-import React, {useState, useEffect} from 'react';
-import {FlatList, View, Text, StyleSheet} from 'react-native';
-import {useSelector} from 'react-redux';
+import React, {useEffect} from 'react';
+import {FlatList, View, StyleSheet} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
 import PlaceItem from '../components/PlaceItem/index';
-import auth from '@react-native-firebase/auth';
 import UserProfile from '../components/UserProfile';
+import {loadProfile} from '../store/actions/auth.actions';
+import {loadPlaces} from '../store/actions/places.actions';
 
 const PlaceListScreen = ({navigation}) => {
+  const dispatch = useDispatch();
   const places = useSelector(state => state.places.places);
   const user = useSelector(state => state.auth.user);
+
+  useEffect(() => {
+    dispatch(loadPlaces());
+    dispatch(loadProfile(user));
+  }, []);
 
   const onSelectDetail = item => {
     navigation.navigate('Detalle', {
@@ -27,9 +34,7 @@ const PlaceListScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <UserProfile 
-        style={styles.profile}
-      />
+      <UserProfile style={styles.profile} />
       <FlatList
         style={styles.list}
         data={places}
@@ -46,11 +51,9 @@ const styles = StyleSheet.create({
   },
   profile: {
     flex: 1,
-    fontSize: 30,
   },
   list: {
-    flex: 0,
-    flexShrink: 1,
+    flex: 1,
   },
 });
 

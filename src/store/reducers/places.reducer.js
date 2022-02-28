@@ -21,7 +21,6 @@ export default (state = initialState, action) => {
         places: state.places.concat(newPlace),
       };
     case LOAD_PLACE:
-      console.warn('action.payload', action.payload);
       return {
         ...state,
         places: action.payload.map(place => {

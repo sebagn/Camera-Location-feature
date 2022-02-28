@@ -11,14 +11,23 @@ import MainNavigator from './navigation';
 import store from './store';
 import {Provider} from 'react-redux';
 
-import {init} from './db';
+import {initAddressDB} from './db/address-db';
+import {initProfileDB} from './db/profile-db';
 
-init()
+initAddressDB()
   .then(() => {
-    console.log('DB initialized');
+    console.log('Address DB initialized');
   })
   .catch(err => {
-    console.log('DB initialization failed', err);
+    console.log('Address DB initialization failed', err);
+  });
+
+initProfileDB()
+  .then(() => {
+    console.log('Profile DB initialized');
+  })
+  .catch(err => {
+    console.log('Profile DB initialization failed', err);
   });
 
 const App = () => {

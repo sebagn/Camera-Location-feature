@@ -15,7 +15,7 @@ const PlaceStack = createNativeStackNavigator();
 
 const PlaceNavigator = () => (
   <PlaceStack.Navigator
-    initialRoute="Login"
+    initialRouteName="Login"
     screenOptions={{
       headerStyle: {
         backgroundColor: Platform.OS === 'android' ? COLORS.DARK_SIENNA : '',

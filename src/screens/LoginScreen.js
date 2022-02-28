@@ -64,9 +64,14 @@ const LoginScreen = ({navigation}) => {
   };
 
   return (
-    <KeyboardAvoidingView style={[styles.container, isKeyboardVisible && styles.containerKeyboard]} behavior="height" enabled>
+    <KeyboardAvoidingView
+      style={[styles.container, isKeyboardVisible && styles.containerKeyboard]}
+      behavior="height"
+      enabled>
+
       <View style={styles.containerCard}>
         <Text style={styles.formTitle}>{isLogin ? 'Login' : 'Registro'}</Text>
+
         <View style={styles.containerForm}>
           <Input
             ref={emailInput}
@@ -82,7 +87,6 @@ const LoginScreen = ({navigation}) => {
           />
           <Input
             ref={passwordInput}
-            style={styles.input}
             label="Password"
             placeholder="ingresa tu contraseña"
             placeholderTextColor="#999"
@@ -95,19 +99,22 @@ const LoginScreen = ({navigation}) => {
             maxLength={20}
           />
         </View>
-        <TouchableOpacity onPress={() => setIsLogin(!isLogin)}>
-          <Text style={styles.linkText}>
-            {isLogin
-              ? '¿No tienes una cuenta? registrate'
-              : '¿Ya tienes una cuenta?'}
-          </Text>
-        </TouchableOpacity>
-        <Button
-          title={isLogin ? 'Ingresar' : 'Registrar'}
-          color="#2e78b7"
-          onPress={() => handleAuth()}
-          disabled={isNotValid}
-        />
+
+        <View style={styles.botones}>
+          <TouchableOpacity onPress={() => setIsLogin(!isLogin)}>
+            <Text style={styles.linkText}>
+              {isLogin
+                ? '¿No tienes una cuenta? registrate'
+                : '¿Ya tienes una cuenta?'}
+            </Text>
+          </TouchableOpacity>
+          <Button
+            title={isLogin ? 'Ingresar' : 'Registrar'}
+            color="#2e78b7"
+            onPress={() => handleAuth()}
+            disabled={isNotValid}
+          />
+        </View>
       </View>
     </KeyboardAvoidingView>
   );
@@ -132,13 +139,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 10,
     padding: 20,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
     elevation: 5,
   },
   formTitle: {
@@ -149,18 +149,7 @@ const styles = StyleSheet.create({
   containerForm: {
     flex: 1,
   },
-  label: {
-    fontSize: 12,
-    marginBottom: 5,
-    fontWeight: 'bold',
-  },
-  input: {
-    borderBottomColor: '#ccc',
-    borderBottomWidth: 1,
-    color: '#333',
-    fontSize: 16,
-    marginBottom: 15,
-  },
+
   linkText: {
     color: '#2e78b7',
     fontSize: 16,
